@@ -96,7 +96,7 @@ static bool FLAGS_histogram = false;
 // Number of bytes to use as a cache of uncompressed data.
 // Negative means use default settings.
 // leveldb runs with 4 mb
-static int FLAGS_cache_size = 4 * 1024 * 1024;
+static uint64_t FLAGS_cache_size = 4 * 1024 * 1024;
 
 // If true, do not destroy the existing database.  If you set this
 // flag and also specify a benchmark that wants a fresh database, that
@@ -678,7 +678,7 @@ class Benchmark {
     }
 
     ham_parameter_t db_params[8] = {
-        {HAM_PARAM_RECORD_SIZE, value_size_},
+        {HAM_PARAM_RECORD_SIZE, (uint64_t)value_size_},
         {0, 0}
     };
 
